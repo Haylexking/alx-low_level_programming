@@ -5,7 +5,7 @@
  * Description: Write a program that prints all possible
  * different combinations of three digits
  * Numbers must be separated by ,, followed by a space
- * The three digits must be 
+ * The three digits must be
  * Print only the smallest combination of three digits
  * Numbers should be printed in ascending order, with three digits
  * You can only use the putchar function
