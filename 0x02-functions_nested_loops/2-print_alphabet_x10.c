@@ -1,16 +1,11 @@
 #include "main.h"
 /**
- * print_alphabet_10x - Printing the lower case 10 times.
+ *  main - Entry for code
  *
- * Return: 0 (reurn)
+ *  Return: Always 0.
  */
-void print_alphabet_10x(void)
+int main(void)
 {
-int i;
-char alpha;
-
-for (i = 0; i < 10; i++)
-{
-for (alpha = 'a'; alpha <= 'z'; alpha++)
-_putchar(alpha);
-_putchar('\n');
+print_alphabet_x10();
+return (0);
+}

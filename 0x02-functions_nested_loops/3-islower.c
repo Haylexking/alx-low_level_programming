@@ -1,18 +1,14 @@
 #include "main.h"
 /**
- * _islower - returns 1 if the input is 0 
- *
- * Return: 1 for lowercase character. 0 for the rest.
+ * _islower - function
+ * @c: character to check case sensitiviy
+ * Return: Always 0.
  */
 int _islower(int c)
 {
-if (c >= 'a' && c <= 'z')
+if (c >= 97 && c <= 122)
 {
 return (1);
 }
-else
-{
 return (0);
-}
-_putchar('\n');
 }
