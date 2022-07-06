@@ -1,12 +1,22 @@
 #include "main.h"
+#include <stdio.h>
 /**
- * _abs - prints absolute value
- * Return: 1 if n>0,0 if n=0 or -1 if n<0
+ * _abs - Entry Function
+ * Descritpion: absolute value function
+ * @c: int for number
+ * Return: 0 or 1
  */
-int _abs(int n)
+int _abs(int c)
 {
-if (n < 0)
-return (n * -1);
-return (n);
+int p;
+if (c < 0)
+{
+p = c * -1;
 }
+else
+{
+p = c;
+}
+return (p);
 
+}
