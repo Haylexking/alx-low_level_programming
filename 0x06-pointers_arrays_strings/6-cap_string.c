@@ -1,33 +1,29 @@
 #include "main.h"
 
 /**
- * cap_string - a function that capitalizes all words of a string
- * @n: input string
- * Return: caps on first letter of a separator
+ * cap_string - capitalizes all words of a string
+ * @s: string to capitalize
+ * Return: string;
  */
-char *cap_string(char *n)
+
+char *cap_string(char *s)
 {
-		int i, x;
-		int cap = 32;
-		int asc[] = {',', ';', '.', '?', '"',
-'(', ')', '{', '}', ' ', '\n', '\t'};
+	int i = 1;
 
-		for (i = 0; n[i] != '\0'; i++)
+	if (s[0] >= 'a' && s[0] <= 'z')
+	{
+		s[0] = s[0] - 32;
+	}
+	for (; s[i]; i++)
+	{
+		if ((s[i - 1] == ' ' || s[i - 1] == '\n' || s[i - 1] == '\t'
+		    || s[i - 1] == ',' || s[i - 1] == ';' || s[i - 1] == '!'
+		    || s[i - 1] == '?' || s[i - 1] == '"' || s[i - 1] == '('
+		     || s[i - 1] == ')' || s[i - 1] == '{' || s[i - 1] == '}'
+		     || s[i - 1] == '.') && (s[i] > 'a' && s[i] < 'z'))
 		{
-			if (n[i] >= 'a' && n[i] <= 'z')
-			{
-				n[i] = n[i] - cap;
-			}
-			cap = 0;
-			for (x = 0; x <= 12; x++)
-			{
-				if (n[i] == asc[x])
-				{
-					x = 12;
-					cap = 32;
-				}
-			}
+			s[i] = s[i] - 32;
 		}
-
-		return (n);
-		}
+	}
+	return (s);
+}
