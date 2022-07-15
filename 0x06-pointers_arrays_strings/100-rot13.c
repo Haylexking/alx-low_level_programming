@@ -1,25 +1,25 @@
 #include "main.h"
-
 /**
- * rot13 - encodes a string in rot13
- * @s: string to be encoded
- *
- * Return: the resulting string
+ * rot13 - encodes a string by rotating the characters 13 spaces.
+ * @s: pointer to input string.
+ * Return: Returns pointer encoded string.
  */
 char *rot13(char *s)
 {
 	int i, j;
-	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char r[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char boolean;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; a[j] != '\0'; j++)
+		boolean = 0;
+		for (j = 0; alpha[j] != '\0' && boolean == 0; j++)
 		{
-			if (s[i] == a[j])
+			if (s[i] == alpha[j])
 			{
-				s[i] = b[j];
-				break;
+				s[i] = r[j];
+				boolean = 1;
 			}
 		}
 	}
