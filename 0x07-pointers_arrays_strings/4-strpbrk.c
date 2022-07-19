@@ -1,24 +1,31 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * _strpbrk - Entry point
- * @s: input
- * @accept: input
- * Return: Always 0 (Success)
- */
+ * _strpbrk - matches any character specified
+ * @s: This is the C string to be scanned.
+ * @accept:character in str1 that matches one of the characters in str2
+ *Return: string s that matches any character specified in accept
+ **/
+
 char *_strpbrk(char *s, char *accept)
 {
-	int i, n;
+	int j;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (*s != '\0') /*Declaring WHILE*/
 	{
-		for (n = 0; accept[n] != '\0'; n++)
+		j = 0;
+		while (accept[j] != '\0')  /*Evaluating *accept*/
 		{
-			if (s[i] == accept[n])
-				return (s + i);
-		}
-	}
+			if (*s == accept[j])
+			{
+				return (s);
+			}
 
-	return (NULL);
+			j++; /*add j+1*/
+		}
+
+		s++; /*add s+1*/
+	}
+	return (0);
+
 }
