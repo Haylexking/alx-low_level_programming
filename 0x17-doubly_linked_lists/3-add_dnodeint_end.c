@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 /**
- * add_dnodeint - add a new node at the beginning of the linked list
+ * add_dnodeint_end - adds a node to the end of a linked list
  * @head: double pointer to the beginning of the linked list
- * @n: value to add to the new node
+ * @n: value to add to new node
  *
  * Return: pointer to the new node, or NULL on failure
  */
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *new;
+	dlistint_t *new, *tmp;
 
 	if (head == NULL)
 		return (NULL);
@@ -18,10 +18,17 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	if (new == NULL)
 		return (NULL);
 	new->n = n;
-	new->prev = NULL;
-	new->next = *head;
-	*head = new;
-	if (new->next != NULL)
-		(new->next)->prev = new;
+	new->next = NULL;
+	if (*head == NULL)
+	{
+		new->prev = NULL;
+		*head = new;
+		return (new);
+	}
+	tmp = *head;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new;
+	new->prev = tmp;
 	return (new);
 }
